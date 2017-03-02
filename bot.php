@@ -2,7 +2,7 @@
 $access_token = 'DCIp/W+z2xakOLOQ1Jbz/Lz8qpOqsmkNtXKtzGGFjZomMIORZ14wX3wA2q87NRFaE74UXv8XQfGgKer+hSyu2UoJpmyPhnDPd3kOrkIFyDynIWdm7fUjvqK7M7Uxg9daPwlD9C7HX9OIuIHcOIRmgwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
-$content = file_get_contents('php://input');
+/*$content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
@@ -21,7 +21,7 @@ fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
 foreach (getallheaders() as $name => $value) {
     echo "$name: $value\n";
         echo "<br>";
-}
+}*/
 
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -123,8 +123,8 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			fwrite($myfile,$result);
-			fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
+			//fwrite($myfile,$result);
+			//fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
 
 			//echo $result . "\r\n";
 		}
