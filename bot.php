@@ -1,13 +1,12 @@
 <?php
-$access_token = 'PrCpAOOBJJ9V1nYc9v9RN8PEo/IxSWw829NYnIcXFfNpW3ISPOeUJhrpnLNF+CmhyzX8HjsL4flCZEmt/rpvOPJjJ3DJrEKnYbt1BaVM+VbqNCY2VdZNrrZK7+I4U35ee6q6/Pc9wvsTcv5v12nLQwdB04t89/1O/w1cDnyilFU=';
-
+$access_token = 'sew+2f8y5MeIxhEa3kO/qccuZ+6XyBNXvG93l2qfhSQETKdEZpjK3DM8aNRL2Lt/NfG+T/mKtN7FQwxM7rU4cysF51BsyPSUCPTFIcB710+y1Z0+r0EGFGFeOgQ8EoS2j1m6GIPYc7yAv32Dub+9zwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-/*$myfile = fopen("/usr/share/nginx/html/json.log","a");
+$myfile = fopen("/usr/share/nginx/html/json.log","a");
 
 foreach (getallheaders() as $name => $value) {
     fwrite($myfile,"$name: $value\n");
@@ -23,17 +22,18 @@ foreach (getallheaders() as $name => $value) {
     echo "$name: $value\n";
         echo "<br>";
 }
-*/
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type']) {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+
 
 			// Build message to reply back
 			$message1 = [
@@ -62,6 +62,13 @@ if (!is_null($events['events'])) {
 				)
 			];
 
+      
+      if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+  			// Get text sent
+  			$text = $event['message']['text'];
+  			// Get replyToken
+  			$replyToken = $event['replyToken'];
+        
 			$message3 = [
 				'type' => 'template',
 				'altText' => 'This is a carousel template',
@@ -105,7 +112,6 @@ if (!is_null($events['events'])) {
 						)
 				)
 			];
-			
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
@@ -125,8 +131,8 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			//fwrite($myfile,$result);
-			//fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
+			fwrite($myfile,$result);
+			fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
 
 			//echo $result . "\r\n";
 		}
@@ -138,4 +144,3 @@ if (!is_null($events['events'])) {
 echo "OK";
 
 ?>
-
