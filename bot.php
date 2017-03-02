@@ -34,7 +34,6 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-
 			// Build message to reply back
 			$message1 = [
 				'type' => 'text',
@@ -61,7 +60,7 @@ if (!is_null($events['events'])) {
 						)
 				)
 			];
-      
+
 			$message3 = [
 				'type' => 'template',
 				'altText' => 'This is a carousel template',
