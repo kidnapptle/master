@@ -6,7 +6,7 @@ $access_token = 'PrCpAOOBJJ9V1nYc9v9RN8PEo/IxSWw829NYnIcXFfNpW3ISPOeUJhrpnLNF+Cm
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-*/
+
 $myfile = fopen("/usr/share/nginx/html/json.log","a");
 
 foreach (getallheaders() as $name => $value) {
@@ -23,7 +23,7 @@ foreach (getallheaders() as $name => $value) {
     echo "$name: $value\n";
         echo "<br>";
 }
-
+*/
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
