@@ -16,14 +16,14 @@ foreach (getallheaders() as $name => $value) {
 $postdata = file_get_contents("php://input");
 fwrite($myfile,$postdata);
 fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
-
+*/
 
 
 foreach (getallheaders() as $name => $value) {
     echo "$name: $value\n";
         echo "<br>";
 }
-*/
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
