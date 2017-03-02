@@ -61,14 +61,7 @@ if (!is_null($events['events'])) {
 						)
 				)
 			];
-
       
-      if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-  			// Get text sent
-  			$text = $event['message']['text'];
-  			// Get replyToken
-  			$replyToken = $event['replyToken'];
-        
 			$message3 = [
 				'type' => 'template',
 				'altText' => 'This is a carousel template',
