@@ -1,13 +1,13 @@
 <?php
 $access_token = 'DCIp/W+z2xakOLOQ1Jbz/Lz8qpOqsmkNtXKtzGGFjZomMIORZ14wX3wA2q87NRFaE74UXv8XQfGgKer+hSyu2UoJpmyPhnDPd3kOrkIFyDynIWdm7fUjvqK7M7Uxg9daPwlD9C7HX9OIuIHcOIRmgwdB04t89/1O/w1cDnyilFU=';
 
-/*
+
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-$myfile = fopen("/usr/share/nginx/html/json.log","a");
+/*$myfile = fopen("/usr/share/nginx/html/json.log","a");
 
 foreach (getallheaders() as $name => $value) {
     fwrite($myfile,"$name: $value\n");
