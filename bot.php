@@ -29,9 +29,9 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text' && $event['text']['type'] == 'ดูดวง') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text']['ดูดวง'];
+			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -102,6 +102,42 @@ if (!is_null($events['events'])) {
 									)
 								)
 							)
+              array(
+								'thumbnailImageUrl' => 'https://iservices.me/imgBC/1.png',
+								'title' => 'this is menu',
+								'text' => 'text description',
+								'actions' => array(
+									array(
+										'type' => 'uri',
+										'label' => 'View in Google',
+										'uri' => 'https://www.google.com'
+									),
+									array(
+										'type' => 'message',
+										'label' => 'Say Hello',
+										'text' => 'Hello'
+									)
+								)
+							),
+							array(
+								'thumbnailImageUrl' => 'https://iservices.me/imgBC/2.png',
+								'title' => 'this is menu',
+								'text' => 'text description',
+								'actions' => array(
+									array(
+										'type' => 'uri',
+										'label' => 'View in LINE',
+										'uri' => 'https://line.me'
+									),
+									array(
+										'type' => 'message',
+										'label' => 'Say Hello',
+										'text' => 'Hello'
+									)
+								)
+							)
+
+              
 						)
 				)
 			];
