@@ -4,12 +4,10 @@ $access_token = 'PrCpAOOBJJ9V1nYc9v9RN8PEo/IxSWw829NYnIcXFfNpW3ISPOeUJhrpnLNF+Cm
 
 // Get POST body content
 $content = file_get_contents('php://input');
-/*
 // Parse JSON
 $events = json_decode($content, true);
-
+/*
 $myfile = fopen("/usr/share/nginx/html/json.log","a");
-*/
 
 foreach (getallheaders() as $name => $value) {
     fwrite($myfile,"$name: $value\n");
@@ -20,10 +18,11 @@ fwrite($myfile,$postdata);
 fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
 
 
+
 foreach (getallheaders() as $name => $value) {
     echo "$name: $value\n";
         echo "<br>";
-}
+}*/
 
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -125,8 +124,8 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			fwrite($myfile,$result);
-			fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
+			//fwrite($myfile,$result);
+			//fwrite($myfile,"\n +++++++++++++++++++++++++ \n");
 
 			//echo $result . "\r\n";
 		}
