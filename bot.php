@@ -101,7 +101,7 @@ if (!is_null($events['events'])) {
 										'text' => 'Hello'
 									)
 								)
-							)
+							),
               array(
 								'thumbnailImageUrl' => 'https://iservices.me/imgBC/1.png',
 								'title' => 'this is menu',
@@ -136,7 +136,7 @@ if (!is_null($events['events'])) {
 									)
 								)
 							)
-
+              
               
 						)
 				)
